@@ -14,8 +14,12 @@ function getShow() {
       const listEl = document.querySelector(".list");
       for (const item of showData) {
         const showTitle = item.show.name;
-        const showPhoto = item.show.image.original;
-        listEl.innerHTML += `<li class='element'><h2>${showTitle}</h2><img src="${showPhoto}"/></li>`;
+        if (item.show.image) {
+          const showPhoto = item.show.image.medium;
+          listEl.innerHTML += `<li class='element'><h2>${showTitle}</h2><img src="${showPhoto}"/></li>`;
+        } else {
+          listEl.innerHTML += `<li class='element'><h2>${showTitle}</h2><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"/></li>`;
+        }
       }
     });
 }
