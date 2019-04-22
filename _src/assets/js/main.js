@@ -13,21 +13,9 @@ function getShow() {
       document.body.innerHTML += `<ul class="list"></ul>`;
       const listEl = document.querySelector(".list");
       for (const item of showData) {
-          const serie = item.show.name;
-          // console.log(serie);  
-        listEl.innerHTML += `<li class='element'>${serie}</li>`;
+        const showTitle = item.show.name;
+        const showPhoto = item.show.image.original;
+        listEl.innerHTML += `<li class='element'><h2>${showTitle}</h2><img src="${showPhoto}"/></li>`;
       }
     });
 }
-
-// function getShow() {
-//     fetch("http://api.tvmaze.com/shows")
-//       .then(showResponse => showResponse.json())
-//       .then(showData => {
-//           document.body.innerHTML += `<ul class="list"></ul>`;
-//           const listEl = document.querySelector('.list');
-//         for (const show of showData) {
-//           listEl.innerHTML += `<li class='element'>${show.name}</li>`
-//         }
-//       });
-//   }
