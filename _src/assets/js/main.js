@@ -1,7 +1,7 @@
 "use strict";
 
 const buttonEl = document.querySelector(".search-btn");
-const listEl = document.querySelector('.list');
+const listEl = document.querySelector(".list");
 const myFavouriteShows = [];
 // const aFavouriteShow (title,preview) ={
 //   Title:'title',
@@ -9,7 +9,7 @@ const myFavouriteShows = [];
 // }
 
 function getShow() {
-  listEl.innerHTML ='';
+  listEl.innerHTML = "";
   let inputEl = document.querySelector(".search-input");
   fetch(`http://api.tvmaze.com/search/shows?q=${inputEl.value}`)
     .then(showResponse => showResponse.json())
@@ -32,19 +32,14 @@ function getShow() {
 
 buttonEl.addEventListener("click", getShow);
 
-// Crear array vacía para meter favoritos
-// Crear objeto vacío con propiedades Title y Preview. Los objetos se acumularán dentro del array
-// Poner listener en el li de cada serie para escuchar su click
-
 function addToMyFavourites(event) {
   event.currentTarget.classList.add("favouriteShows");
   // recoger los valores de title e image para guardarlos en el objeto
   const title = event.currentTarget.children[0].innerHTML;
   const preview = event.currentTarget.children[1].currentSrc;
+  // guardar esos valores en el objeto
+  const myFavouriteShows = {name: title, photo: preview};
+  console.log(myFavouriteShows);
+
+  // guardar el objeto en el array
 }
-
-
-// Cuando escuchemos el click·
-// guardar esa serie en el objeto
-// guardar el objeto en el array
-
