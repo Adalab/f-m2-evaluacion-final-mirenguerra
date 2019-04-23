@@ -2,11 +2,8 @@
 
 const buttonEl = document.querySelector(".search-btn");
 const listEl = document.querySelector(".list");
-const myFavouriteShows = [];
-// const aFavouriteShow (title,preview) ={
-//   Title:'title',
-//   Preview:'preview'
-// }
+let myFavouriteShows = [];
+
 
 function getShow() {
   listEl.innerHTML = "";
@@ -38,8 +35,9 @@ function addToMyFavourites(event) {
   const title = event.currentTarget.children[0].innerHTML;
   const preview = event.currentTarget.children[1].currentSrc;
   // guardar esos valores en el objeto
-  const myFavouriteShows = {name: title, photo: preview};
+  const myShows = {name: title, photo: preview};
+  // console.log(myShows);
+  // guardar los objetos en el array
+  let allMyFavouriteShows = myFavouriteShows.push(myShows);
   console.log(myFavouriteShows);
-
-  // guardar el objeto en el array
 }
