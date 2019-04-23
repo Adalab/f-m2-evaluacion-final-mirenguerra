@@ -52,11 +52,7 @@ function addClassToFavourite() {
 function printFavourites() {
   favouriteListEl.innerHTML = `<h2 class="favourite-title">My favourite shows</h2>`;
   for (const show of myFavouriteShows) {
-    favouriteListEl.innerHTML += `<li class='favouriteElement'><img class="favourite-image" src="${
-      show.photo
-    }"/><div class="alignTitle"><h2 class="favourite-titleName">${
-      show.name
-    }</h2></div><i class="fas fa-times-circle"></i></li>`;
+    favouriteListEl.innerHTML += `<li class='favouriteElement'><img class="favourite-image" src="${show.photo}"/><div class="alignTitle"><h2 class="favourite-titleName">${show.name}</h2></div><i class="fas fa-times-circle"></i></li>`;
     const xBtn = document.querySelectorAll(".fa-times-circle");
     for (let k = 0; k < xBtn.length; k++) {
       xBtn[k].addEventListener("click", removeFromMyFavourites);
@@ -78,7 +74,7 @@ function printFavouritesFromLS() {
 
 function removeFromMyFavourites(event) {
   let eventNode = event.currentTarget.parentElement;
-  eventNode.innerHTML = '';
+  eventNode.innerHTML = "";
 }
 
 function init() {
