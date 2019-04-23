@@ -30,16 +30,16 @@ function getShow() {
 buttonEl.addEventListener("click", getShow);
 
 function addToMyFavourites(event) {
-  event.currentTarget.classList.add("favouriteShows");
-  // recoger los valores de title e image para guardarlos en el objeto
+  addClassToFavourite();
   const title = event.currentTarget.children[0].innerHTML;
   const preview = event.currentTarget.children[1].currentSrc;
-  // guardar esos valores en el objeto
   const myShows = { name: title, photo: preview };
-  // guardar los objetos en el array
   let allMyFavouriteShows = myFavouriteShows.push(myShows);
-  console.log(myShows);
   printFavourites();
+}
+
+function addClassToFavourite(){
+  event.currentTarget.classList.add("favouriteShows");
 }
 
 function printFavourites() {
