@@ -41,7 +41,7 @@ function addToMyFavourites(event) {
     const myShows = { name: title, photo: preview };
     let allMyFavouriteShows = myFavouriteShows.push(myShows);
     printFavourites();
-    localStorage.setItem("myFavouriteShows",JSON.stringify(myFavouriteShows));
+    saveFavouritesAtLS();
   }
 }
 
@@ -57,3 +57,21 @@ function printFavourites() {
     }</h2><img class="favourite-image" src="${show.photo}"/></li>`;
   }
 }
+
+function saveFavouritesAtLS() {
+  localStorage.setItem("myFavouriteShows", JSON.stringify(myFavouriteShows));
+}
+
+function printFavouritesFromLS() {
+  const myFavouriteShowsfromLS = localStorage.getItem("myFavouriteShows");
+  if (myFavouriteShowsfromLS) {
+    myFavouriteShows = JSON.parse(myFavouriteShowsfromLS);
+    printFavourites();
+  }
+}
+
+function init(){
+  printFavouritesFromLS();
+}
+
+init();
