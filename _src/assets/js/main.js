@@ -50,7 +50,7 @@ function addClassToFavourite() {
 }
 
 function printFavourites() {
-  favouriteListEl.innerHTML = "";
+  favouriteListEl.innerHTML = `<h2 class="favourite-title">My favourite shows</h2>`;
   for (const show of myFavouriteShows) {
     favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favourite-titleName">${
       show.name
