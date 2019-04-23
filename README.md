@@ -1,6 +1,6 @@
 #Proyecto correspondiente a la evaluación del Módulo 2 de Adalab, desarrollado por Miren Guerra
 
-Se trata de una página web que permite al usuario hacer una búsqueda de series y añadir las favoritas a un listado.
+Se trata de una página web que permite al usuario hacer una búsqueda de series, gracias a una API, y añadir las favoritas a un listado.
 
 - Tenemos un espacio para poder escribir el nombre de nuestra búsqueda y un botón que al pulsar nos muestra las series que coinciden con la búsqueda.
 - Cuando pinchamos sobre una serie, la convertimos en favorita y automáticamente aparece en un listado de favoritos, a la izquierda de la pantalla, y además la información de nuestro listado se guarda en el LocalStorage.
