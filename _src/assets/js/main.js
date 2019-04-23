@@ -54,7 +54,7 @@ function printFavourites() {
   for (const show of myFavouriteShows) {
     favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favourite-titleName">${
       show.name
-    }</h2><img class="favourite-image" src="${show.photo}"/></li>`;
+    }</h2><img class="favourite-image" src="${show.photo}"/><i class="fas fa-times-circle"></i></li>`;
   }
 }
 
