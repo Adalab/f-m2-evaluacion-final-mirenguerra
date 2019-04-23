@@ -41,6 +41,7 @@ function addToMyFavourites(event) {
     const myShows = { name: title, photo: preview };
     let allMyFavouriteShows = myFavouriteShows.push(myShows);
     printFavourites();
+    localStorage.setItem("myFavouriteShows",JSON.stringify(myFavouriteShows));
   }
 }
 
