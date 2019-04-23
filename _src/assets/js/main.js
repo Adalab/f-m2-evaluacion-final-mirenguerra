@@ -73,10 +73,15 @@ function printFavouritesFromLS() {
 }
 
 function removeFromMyFavourites(event){
-  event.currentTarget.classList.remove("favouriteShows");
-  event.currentTarget.parentNode.removeChild(favouriteListEl);
+  let eventNode = event.currentTarget.parentElement;
+  // let eventNodeBaseURI = event.currentTarget.baseURI;
+  eventNode.innerHTML = '';
+  // eventNodeBaseURI = '';
+  // console.log(eventNodeBaseURI);
+  
   console.dir(event.currentTarget);
-  // delete event.currentTarget.;
+  
+  localStorage.removeItem('');
 }
 // Cuando escuche el click del icono borrar ese objeto de favoritos y del localStorage
 
