@@ -1,31 +1,85 @@
-@import 'core/settings';
+@import "core/settings";
 
-*{
+* {
+  margin: 0;
+  padding: 0;
+//   border: solid 1px blue;
+}
+
+ul, menu, dir {
+	display: flex;
+	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	border: solid 1px blue;
+  }
+
+body {
+  background-color: pink;
+  padding: 20px;
 }
 
-body{
-	background-color:pink;
+.mainTitle{
+	color: rgb(172, 32, 78);
+	font-size: 50px;
+	text-align: center;
 }
 
-.element{
-	background-color:pink;
-	color: fuchsia;
+.search-input{
+	font-size: 26px;
+	padding-left: 10px;
+	width: 500px;
 }
 
-.favouriteShows{
-	background-color: fuchsia;
-	color: pink;
+.search-btn{
+	height: 32px;
+	width: 90px;
+	font-size: 22px;
+	margin: 20px;
+	background-color:rgb(172, 32, 78);
+	color: #fff;
+	border-radius: 4px;
 }
 
-.list{
-	display: flex;
-	height: 100px;
+.list {
+  display: flex;
 }
 
-.favourite-list{
-	
+.show-list {
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
+.element {
+  background-color: pink;
+  color: rgb(172, 32, 78);
+  font-size: 24px;
+  text-align: center;
+  width: 280px;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.favourite-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color:  rgb(172, 32, 78);
+  font-size: 16px;
+  text-align: center;
+  width: 600px;
+  padding: 10px;
+}
+
+.favouriteElement {
+margin-bottom: 15px;
+}
+
+.favourite-image {
+  height: 100px;
+}
+
+.favouriteShows {
+  background-color: rgb(172, 32, 78);
+  color: pink;
+}

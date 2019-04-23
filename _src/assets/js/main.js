@@ -34,12 +34,14 @@ function getInfoFromAPI() {
 buttonEl.addEventListener("click", getShow);
 
 function addToMyFavourites(event) {
-  addClassToFavourite();
-  const title = event.currentTarget.children[0].innerHTML;
-  const preview = event.currentTarget.children[1].currentSrc;
-  const myShows = { name: title, photo: preview };
-  let allMyFavouriteShows = myFavouriteShows.push(myShows);
-  printFavourites();
+  if (!event.currentTarget.classList.contains("favouriteShows")) {
+    addClassToFavourite();
+    const title = event.currentTarget.children[0].innerHTML;
+    const preview = event.currentTarget.children[1].currentSrc;
+    const myShows = { name: title, photo: preview };
+    let allMyFavouriteShows = myFavouriteShows.push(myShows);
+    printFavourites();
+  }
 }
 
 function addClassToFavourite() {
@@ -49,8 +51,8 @@ function addClassToFavourite() {
 function printFavourites() {
   favouriteListEl.innerHTML = "";
   for (const show of myFavouriteShows) {
-    favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favouriteTitleName">${
+    favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favourite-titleName">${
       show.name
-    }</h2><img src="${show.photo}"/></li>`;
+    }</h2><img class="favourite-image" src="${show.photo}"/></li>`;
   }
 }
