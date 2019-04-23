@@ -52,7 +52,11 @@ function addClassToFavourite() {
 function printFavourites() {
   favouriteListEl.innerHTML = `<h2 class="favourite-title">My favourite shows</h2>`;
   for (const show of myFavouriteShows) {
-    favouriteListEl.innerHTML += `<li class='favouriteElement'><img class="favourite-image" src="${show.photo}"/><div class="alignTitle"><h2 class="favourite-titleName">${show.name}</h2></div><i class="fas fa-times-circle"></i></li>`;
+    favouriteListEl.innerHTML += `<li class='favouriteElement'><img class="favourite-image" src="${
+      show.photo
+    }"/><div class="alignTitle"><h2 class="favourite-titleName">${
+      show.name
+    }</h2></div><i class="fas fa-times-circle"></i></li>`;
     const xBtn = document.querySelectorAll(".fa-times-circle");
     for (let k = 0; k < xBtn.length; k++) {
       xBtn[k].addEventListener("click", removeFromMyFavourites);
@@ -72,18 +76,10 @@ function printFavouritesFromLS() {
   }
 }
 
-function removeFromMyFavourites(event){
+function removeFromMyFavourites(event) {
   let eventNode = event.currentTarget.parentElement;
-  // let eventNodeBaseURI = event.currentTarget.baseURI;
   eventNode.innerHTML = '';
-  // eventNodeBaseURI = '';
-  // console.log(eventNodeBaseURI);
-  
-  console.dir(event.currentTarget);
-  
-  localStorage.removeItem('');
 }
-// Cuando escuche el click del icono borrar ese objeto de favoritos y del localStorage
 
 function init() {
   printFavouritesFromLS();
