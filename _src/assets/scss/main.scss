@@ -3,7 +3,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	// border: solid 1px blue;
+	border: solid 1px blue;
 }
 
 body{
@@ -19,3 +19,13 @@ body{
 	background-color: fuchsia;
 	color: pink;
 }
+
+.list{
+	display: flex;
+	height: 100px;
+}
+
+.favourite-list{
+	
+}
+

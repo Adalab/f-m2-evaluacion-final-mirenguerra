@@ -1,9 +1,9 @@
 "use strict";
 
 const buttonEl = document.querySelector(".search-btn");
-const listEl = document.querySelector(".list");
+const listEl = document.querySelector(".show-list");
+const favouriteListEl = document.querySelector(".favourite-list");
 let myFavouriteShows = [];
-
 
 function getShow() {
   listEl.innerHTML = "";
@@ -35,9 +35,16 @@ function addToMyFavourites(event) {
   const title = event.currentTarget.children[0].innerHTML;
   const preview = event.currentTarget.children[1].currentSrc;
   // guardar esos valores en el objeto
-  const myShows = {name: title, photo: preview};
-  // console.log(myShows);
+  const myShows = { name: title, photo: preview };
   // guardar los objetos en el array
   let allMyFavouriteShows = myFavouriteShows.push(myShows);
-  console.log(myFavouriteShows);
+  console.log(myShows);
+  printFavourites();
+}
+
+function printFavourites() {
+  favouriteListEl.innerHTML='';
+  for (const show of myFavouriteShows) {
+    favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favouriteTitleName">${show.name}</h2><img src="${show.photo}"/></li>`;
+  }
 }
