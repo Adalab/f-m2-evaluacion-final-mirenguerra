@@ -7,6 +7,10 @@ let myFavouriteShows = [];
 
 function getShow() {
   listEl.innerHTML = "";
+  getInfoFromAPI();
+}
+
+function getInfoFromAPI() {
   let inputEl = document.querySelector(".search-input");
   fetch(`http://api.tvmaze.com/search/shows?q=${inputEl.value}`)
     .then(showResponse => showResponse.json())
@@ -38,13 +42,15 @@ function addToMyFavourites(event) {
   printFavourites();
 }
 
-function addClassToFavourite(){
+function addClassToFavourite() {
   event.currentTarget.classList.add("favouriteShows");
 }
 
 function printFavourites() {
-  favouriteListEl.innerHTML='';
+  favouriteListEl.innerHTML = "";
   for (const show of myFavouriteShows) {
-    favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favouriteTitleName">${show.name}</h2><img src="${show.photo}"/></li>`;
+    favouriteListEl.innerHTML += `<li class='favouriteElement'><h2 class="favouriteTitleName">${
+      show.name
+    }</h2><img src="${show.photo}"/></li>`;
   }
 }
