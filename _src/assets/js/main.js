@@ -15,20 +15,37 @@ function getInfoFromAPI() {
   fetch(`http://api.tvmaze.com/search/shows?q=${inputEl.value}`)
     .then(showResponse => showResponse.json())
     .then(showData => {
+      // console.log(showData);
+
       for (const item of showData) {
         const showTitle = item.show.name;
+        const showGenre = item.show.genres;
+        let allGenre = "";
+        for (const genre of showGenre) {
+          allGenre += `<li>${genre}</li>`;
+          // console.log(allGenre);
+        }
         if (item.show.image) {
           const showPhoto = item.show.image.medium;
-          listEl.innerHTML += `<li class='element'><h2 class="titleName">${showTitle}</h2><img src="${showPhoto}"/></li>`;
+          listEl.innerHTML += `<li class='element'><h2 class="titleName">${showTitle}</h2><ul>${allGenre}</ul><img src="${showPhoto}"/></li>`;
         } else {
-          listEl.innerHTML += `<li class='element'><h2 class="titleName">${showTitle}</h2><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"/></li>`;
+          listEl.innerHTML += `<li class='element'><h2 class="titleName">${showTitle}</h2><ul>${allGenre}</ul><img src="https://via.placeholder.com/210x295/ffffff/666666/?text=TV"/></li>`;
         }
         const elementEl = document.querySelectorAll(".element");
+        // for (let j = 0; j < elementEl.length; j++) {
+        //   elementEl[j].addEventListener("click", addToMyFavourites);
+        // }
+
         for (let j = 0; j < elementEl.length; j++) {
-          elementEl[j].addEventListener("click", addToMyFavourites);
+          elementEl[j].addEventListener("click", logName);
         }
       }
     });
+}
+
+function logName(event) {
+  event.currentTarget.querySelector('.titleName');
+  console.log(event.currentTarget.querySelector('.titleName').innerHTML);
 }
 
 buttonEl.addEventListener("click", getShow);
@@ -52,7 +69,11 @@ function addClassToFavourite() {
 function printFavourites() {
   favouriteListEl.innerHTML = `<h2 class="favourite-title">My favourite shows</h2>`;
   for (const show of myFavouriteShows) {
-    favouriteListEl.innerHTML += `<li class='favouriteElement'><img class="favourite-image" src="${show.photo}"/><div class="alignTitle"><h2 class="favourite-titleName">${show.name}</h2></div><i class="fas fa-times-circle"></i></li>`;
+    favouriteListEl.innerHTML += `<li class='favouriteElement'><img class="favourite-image" src="${
+      show.photo
+    }"/><div class="alignTitle"><h2 class="favourite-titleName">${
+      show.name
+    }</h2></div><i class="fas fa-times-circle"></i></li>`;
     const xBtn = document.querySelectorAll(".fa-times-circle");
     for (let k = 0; k < xBtn.length; k++) {
       xBtn[k].addEventListener("click", removeFromMyFavourites);
